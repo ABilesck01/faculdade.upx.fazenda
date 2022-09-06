@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65bb361ddbbeb064288b9ef74effd5a6, type: 3}
+  m_Name: cubo branco
+  m_EditorClassIdentifier: 
+  nameString: Cubo 1x1
+  prefab: {fileID: 758981780680736169, guid: 68d5a5065f42bed4bb7f121a7eefc9a4, type: 3}
+  visual: {fileID: 758981780680736169, guid: f263a2a44e0c210499294bf95e73b7fd, type: 3}
+  width: 1
+  height: 1
