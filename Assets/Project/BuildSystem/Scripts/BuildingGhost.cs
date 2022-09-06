@@ -39,7 +39,6 @@ public class BuildingGhost : MonoBehaviour
             visual = null;
         }
         _transform.position = startPosition;
-        _transform.rotation = Quaternion.identity;
     }
 
     private void Instance_onSelectedChange(object sender, System.EventArgs e)
@@ -70,6 +69,18 @@ public class BuildingGhost : MonoBehaviour
     {
         VisualFollow();
         ChangeFollowByKeyboard();
+        if(Input.GetMouseButtonUp(0))
+        {
+            follow = false;
+        }
+    }
+
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            follow = true;
+        }
     }
 
     private void ChangeFollowByKeyboard()
@@ -80,7 +91,7 @@ public class BuildingGhost : MonoBehaviour
 
     private void VisualFollow()
     {
-        if (EventSystem.current.IsPointerOverGameObject())
+        if (BuildingSystem.instance.isPointerOverUI())
             return;
 
         if (follow)

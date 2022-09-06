@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 4803
+  controlID: 86
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 4804
+  controlID: 87
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 4805
+  controlID: 78
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -186,8 +186,8 @@ MonoBehaviour:
     y: 0
     width: 805.3333
     height: 343.33334
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 6}
   m_Panes:
   - {fileID: 6}
@@ -419,9 +419,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 42.34524, y: -17.770353, z: 21.210756}
+    m_Target: {x: 52.460106, y: 20.172382, z: 54.597343}
     speed: 2
-    m_Value: {x: 42.34524, y: -17.770353, z: 21.210756}
+    m_Value: {x: 52.460106, y: 20.172382, z: 54.597343}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -468,13 +468,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.46242943, y: 0.21616355, z: -0.117337085, w: 0.8519092}
+    m_Target: {x: 0.41258574, y: -0.32389063, z: 0.15980722, w: 0.836314}
     speed: 2
-    m_Value: {x: 0.46240982, y: 0.21615437, z: -0.11733211, w: 0.85187304}
+    m_Value: {x: 0.41256684, y: -0.3238758, z: 0.1597999, w: 0.83627576}
   m_Size:
-    m_Target: 15
+    m_Target: 9.452777
     speed: 2
-    m_Value: 15
+    m_Value: 9.452777
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -577,7 +577,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 4781
+  controlID: 88
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -637,7 +637,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 1edcffff36deffff1ef0ffff32fbffff
+      m_ExpandedIDs: 32fbffff9a5a0000105b00001a5b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -729,22 +729,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Project/BuildSystem/Prefabs/Visuals
+    - Assets/Project/BuildSystem/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Project/BuildSystem/Prefabs/Visuals
+  - Assets/Project/BuildSystem/Scripts
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: C:\Users\Alex\Documents\Projetos\faculdade\UPX6\faculdade.upx.fazenda
+  m_LastProjectPath: C:\Users\Alex\Documents\Projetos\faculdade\UPX6\fazenda
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 685f0000
-    m_LastClickedID: 24424
-    m_ExpandedIDs: 00000000525c0000585c0000605c0000665c000000ca9a3b
+    m_SelectedIDs: 205c0000
+    m_LastClickedID: 23584
+    m_ExpandedIDs: 000000000a5c00000c5c0000165c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -772,7 +772,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000525c0000585c000000ca9a3b
+    m_ExpandedIDs: 000000000a5c00000c5c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -875,8 +875,8 @@ MonoBehaviour:
     y: 0
     width: 538
     height: 819.3333
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}

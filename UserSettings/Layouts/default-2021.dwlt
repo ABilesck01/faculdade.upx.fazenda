@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1706.6667
     height: 869.3334
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 4973
+  controlID: 3366
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 4974
+  controlID: 3367
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 4950
+  controlID: 3327
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 4887
+  controlID: 3245
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -644,9 +644,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 51.88088, y: -1.2734562, z: 42.378574}
+    m_Target: {x: 49.24572, y: 28.001154, z: 51.966076}
     speed: 2
-    m_Value: {x: 51.88088, y: -1.2734562, z: 42.378574}
+    m_Value: {x: 49.24572, y: 28.001154, z: 51.966076}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -693,13 +693,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.22143902, y: 0.21112435, z: -0.04915583, w: 0.9508228}
+    m_Target: {x: 0.39530548, y: -0.24110769, z: 0.10835616, w: 0.87974346}
     speed: 2
-    m_Value: {x: 0.22128071, y: 0.21396634, z: -0.049817707, w: 0.95014286}
+    m_Value: {x: -0.39530545, y: 0.24110767, z: -0.108356155, w: -0.87974346}
   m_Size:
-    m_Target: 15
+    m_Target: 9.452777
     speed: 2
-    m_Value: 15
+    m_Value: 9.452777
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -785,7 +785,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 1edcffff36deffff1ef0ffff32fbffff
+      m_ExpandedIDs: 32fbffff9a5a0000d05a0000025b0000105b00001a5b0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -850,22 +850,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Project/BuildSystem/Prefabs/Visuals
+    - Assets/Project/BuildSystem/Scripts
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Project/BuildSystem/Prefabs/Visuals
+  - Assets/Project/BuildSystem/Scripts
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: C:\Users\Alex\Documents\Projetos\faculdade\UPX6\faculdade.upx.fazenda
+  m_LastProjectPath: C:\Users\Alex\Documents\Projetos\faculdade\UPX6\fazenda
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 685f0000
-    m_LastClickedID: 24424
-    m_ExpandedIDs: 00000000525c0000585c0000605c0000665c000000ca9a3b
+    m_SelectedIDs: 745c0000
+    m_LastClickedID: 23668
+    m_ExpandedIDs: 000000000a5c00000c5c0000145c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -893,7 +893,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000525c0000585c000000ca9a3b
+    m_ExpandedIDs: 000000000a5c00000c5c000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

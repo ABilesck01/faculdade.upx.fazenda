@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using EventSystem = UnityEngine.EventSystems.EventSystem;
 
 public class BuildingSystem : MonoBehaviour
 {
@@ -34,24 +32,24 @@ public class BuildingSystem : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            PlaceObject();
-        }
-        
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    PlaceObject();
+        //}
+
         DemolishObject();
-        
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             ManageRotation();
         }
     }
 
-        public void PlaceObject()
+    public void PlaceObject()
     {
         if (building == null) return;
 
-        grid.GetXZ(GetMousePosition(), out int x, out int z);
+        grid.GetXZ(lastPosition, out int x, out int z);
 
         List<Vector2Int> gridPositionList = building.GetGridPositionList(new Vector2Int(x, z), dir);
 
@@ -91,7 +89,7 @@ public class BuildingSystem : MonoBehaviour
 
     private void DemolishObject()
     {
-        if(Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1))
         {
             GridObject gridObject = grid.GetValue(GetMousePosition());
             PlacedObject placedObject = gridObject.GetPlacedObject();
@@ -107,7 +105,7 @@ public class BuildingSystem : MonoBehaviour
             }
         }
     }
-    
+
     public void ManageRotation()
     {
         dir = BuildingTypeSO.GetNextDir(dir);
@@ -142,7 +140,7 @@ public class BuildingSystem : MonoBehaviour
         if (building != null)
         {
             Vector2Int rotationOffset = building.GetRotationOffset(dir);
-            Vector3 placedObjectWorldPosition = grid.GetWorldPosition(x, z) + 
+            Vector3 placedObjectWorldPosition = grid.GetWorldPosition(x, z) +
                 new Vector3(rotationOffset.x, 0, rotationOffset.y) * grid.GetCellSize();
             return placedObjectWorldPosition;
         }
@@ -152,13 +150,47 @@ public class BuildingSystem : MonoBehaviour
         }
     }
 
+    //private bool PointerOverUI()
+    //{
+    //    _eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+    //    EventSystem.current.RaycastAll(_eventDataCurrentPosition, _rayResults);
+
+    //    List<RectTransform> uiResults = new List<RectTransform>();
+    //    foreach (var rayResult in _rayResults)
+    //    {
+    //        if (rayResult.gameObject.TryGetComponent(out RectTransform rect))
+    //        {
+    //            uiResults.Add(rect);
+    //        }
+    //    }
+
+    //    return uiResults.Count > 0;
+    //}
+
+    public bool isPointerOverUI()
+    {
+        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
+        pointerEventData.position = Input.mousePosition;
+        List<RaycastResult> uiResults = new List<RaycastResult>();
+        for (int i = 0; i < uiResults.Count; i++)
+        {
+            if (uiResults[i].gameObject.TryGetComponent(out RectTransform rectTransform))
+            {
+                uiResults.RemoveAt(i);
+                i--;
+            }
+        }
+
+        return uiResults.Count > 0;
+    }
+
     private Vector3 GetMousePosition()
     {
-        if (EventSystem.current.IsPointerOverGameObject()) 
+        if (isPointerOverUI())
             return lastPosition;
 
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if(Physics.Raycast(ray, out RaycastHit hit, 999f, mouseLayerMask))
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out RaycastHit hit, 999f, mouseLayerMask))
         {
             lastPosition = hit.point;
             return hit.point;
