@@ -12,6 +12,8 @@ public class BuildingSystemMenuController : MonoBehaviour
 
     private void Start()
     {
+        Buildings = BuildingsDatabase.instance.GetAllBuildings();
+
         foreach (BuildingTypeSO item in Buildings)
         {
             GameObject gameObject = Instantiate(MenuItem, MenuParent);

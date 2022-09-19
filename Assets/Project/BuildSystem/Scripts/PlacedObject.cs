@@ -18,7 +18,18 @@ public class PlacedObject : MonoBehaviour
         placedObject.origin = origin;
         placedObject.dir = dir;
 
-        FindObjectOfType<TestScript>().placedObjects.Add(placedObject);
+        //FindObjectOfType<TestScript>().placedObjects.Add(placedObject);
+        PlacedObjectData placedObjectData = new PlacedObjectData();
+        
+        placedObjectData.BuildingId = BuildingsDatabase.instance.GetBuildingIndex(building);
+        placedObjectData.origin_x = origin.x;
+        placedObjectData.origin_y = origin.y;
+        placedObjectData.direction = (int)dir;
+        placedObjectData.worldPos_x = worldPosition.x;
+        placedObjectData.worldPos_y = worldPosition.y;
+        placedObjectData.worldPos_z = worldPosition.z;
+
+        PlayerFarmData.instance.AddData(placedObjectData);
 
         return placedObject;
     }
