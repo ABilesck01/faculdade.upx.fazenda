@@ -18,6 +18,8 @@ public class PlacedObject : MonoBehaviour
         placedObject.origin = origin;
         placedObject.dir = dir;
 
+        FindObjectOfType<TestScript>().placedObjects.Add(placedObject);
+
         return placedObject;
     }
 
