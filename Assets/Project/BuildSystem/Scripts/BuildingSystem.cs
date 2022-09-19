@@ -45,6 +45,11 @@ public class BuildingSystem : MonoBehaviour
         }
     }
 
+    public float GetCellsize()
+    {
+        return grid.GetCellSize();
+    }
+
     public void PlaceObject()
     {
         if (building == null) return;
@@ -122,14 +127,22 @@ public class BuildingSystem : MonoBehaviour
         return building;
     }
 
-    public Quaternion GetPlacedObjectDirection()
+    public Quaternion GetPlacedObjectDirection(out Vector3 position)
     {
         if (building != null)
         {
+            grid.GetXZ(lastPosition, out int x, out int z);
+            Vector2Int rotationOffset = building.GetRotationOffset(dir);
+            Vector3 placedObjectWorldPosition = grid.GetWorldPosition(x, z) +
+                new Vector3(rotationOffset.x, 0, rotationOffset.y) * grid.GetCellSize();
+
+            position = placedObjectWorldPosition;
+
             return Quaternion.Euler(0, building.GetRotationAngle(dir), 0);
         }
         else
         {
+            position = Vector3.zero;
             return Quaternion.identity;
         }
     }

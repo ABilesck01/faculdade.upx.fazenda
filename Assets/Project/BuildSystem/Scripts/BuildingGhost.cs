@@ -8,6 +8,7 @@ public class BuildingGhost : MonoBehaviour
 {
     public bool follow;
     public GameObject canvas;
+    public BoxCollider boxCollider;
 
     private Transform _transform;
     private Transform visual;
@@ -91,17 +92,22 @@ public class BuildingGhost : MonoBehaviour
 
     private void VisualFollow()
     {
+        if (!visual) return;
+
         if (BuildingSystem.instance.isPointerOverUI())
             return;
 
         if (follow)
         {
             Vector3 targetPosition = BuildingSystem.instance.GetMouseGridPosition();
-            Quaternion targetDirection = BuildingSystem.instance.GetPlacedObjectDirection();
             targetPosition.y = 2f;
             _transform.position = Vector3.Lerp(_transform.position, targetPosition, Time.deltaTime * 15f);
-            _transform.rotation = Quaternion.Lerp(_transform.rotation, targetDirection, Time.deltaTime * 15f);
         }
+
+        Quaternion targetDirection = 
+            BuildingSystem.instance.GetPlacedObjectDirection(out Vector3 pos);
+        _transform.position = Vector3.Lerp(_transform.position, pos, Time.deltaTime * 15f);
+        _transform.rotation = Quaternion.Lerp(_transform.rotation, targetDirection, Time.deltaTime * 15f);
     }
 
 }
