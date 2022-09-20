@@ -349,7 +349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
     List: []
-  json: '{"List":[{"BuildingId":0,"origin_x":2,"origin_y":6,"direction":1,"worldPos_x":20.0,"worldPos_y":0.0,"worldPos_z":80.0},{"BuildingId":0,"origin_x":4,"origin_y":4,"direction":2,"worldPos_x":60.0,"worldPos_y":0.0,"worldPos_z":60.0},{"BuildingId":0,"origin_x":7,"origin_y":1,"direction":0,"worldPos_x":70.0,"worldPos_y":0.0,"worldPos_z":10.0},{"BuildingId":1,"origin_x":8,"origin_y":5,"direction":0,"worldPos_x":80.0,"worldPos_y":0.0,"worldPos_z":50.0},{"BuildingId":2,"origin_x":3,"origin_y":1,"direction":0,"worldPos_x":30.0,"worldPos_y":0.0,"worldPos_z":10.0},{"BuildingId":2,"origin_x":4,"origin_y":1,"direction":0,"worldPos_x":40.0,"worldPos_y":0.0,"worldPos_z":10.0}]}'
+  json: '{"List":[{"BuildingId":0,"origin_x":2,"origin_y":6,"direction":1,"worldPos_x":20.0,"worldPos_y":0.0,"worldPos_z":80.0},{"BuildingId":0,"origin_x":4,"origin_y":4,"direction":2,"worldPos_x":60.0,"worldPos_y":0.0,"worldPos_z":60.0},{"BuildingId":0,"origin_x":7,"origin_y":1,"direction":0,"worldPos_x":70.0,"worldPos_y":0.0,"worldPos_z":10.0},{"BuildingId":1,"origin_x":8,"origin_y":5,"direction":0,"worldPos_x":80.0,"worldPos_y":0.0,"worldPos_z":50.0},{"BuildingId":2,"origin_x":3,"origin_y":1,"direction":0,"worldPos_x":30.0,"worldPos_y":0.0,"worldPos_z":10.0},{"BuildingId":2,"origin_x":4,"origin_y":1,"direction":0,"worldPos_x":40.0,"worldPos_y":0.0,"worldPos_z":10.0},{"BuildingId":0,"origin_x":8,"origin_y":8,"direction":0,"worldPos_x":80.0,"worldPos_y":0.0,"worldPos_z":80.0}]}'
 --- !u!4 &323975486
 Transform:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2087413765667727362}
   - component: {fileID: 5930889305629955898}
+  - component: {fileID: 1697747785617976297}
   m_Layer: 0
   m_Name: Area de plantio (sem arar)
   m_TagString: Untagged
@@ -45,6 +46,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a4bedd6dd6dda408b8b879d8ce84f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1697747785617976297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710289710935634616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 343dc9b5b6783eb4abb1098ea42c97f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rawMesh: {fileID: -2432090755550338912, guid: 5130cf96ce6f6154aa3d3e3df39a7f79, type: 3}
+  readyMesh: {fileID: -2432090755550338912, guid: fc931ab8e5138854d83910f4aa2f5d9c, type: 3}
 --- !u!1 &7652144144293399137
 GameObject:
   m_ObjectHideFlags: 0
