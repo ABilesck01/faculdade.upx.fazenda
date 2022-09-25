@@ -17,3 +17,6 @@ MonoBehaviour:
   visual: {fileID: 3749483195807136021, guid: 372c4109ad2b9f64781f8874dd434283, type: 3}
   width: 1
   height: 1
+  price: 250
+  paidPrice: 8
+  icon: {fileID: 21300000, guid: f4d054ef3c4d2504c9edd9f7e3f86ce1, type: 3}
