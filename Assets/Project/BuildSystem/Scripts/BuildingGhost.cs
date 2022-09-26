@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using EventSystem = UnityEngine.EventSystems.EventSystem;
 
 public class BuildingGhost : MonoBehaviour
@@ -13,6 +15,7 @@ public class BuildingGhost : MonoBehaviour
     private Transform _transform;
     private Transform visual;
     private Vector3 startPosition;
+    [SerializeField] private Button confirmButton;
 
     private void Start()
     {
@@ -42,7 +45,7 @@ public class BuildingGhost : MonoBehaviour
         _transform.position = startPosition;
     }
 
-    private void Instance_onSelectedChange(object sender, System.EventArgs e)
+    private void Instance_onSelectedChange(object sender, EventArgs e)
     {
         RefreshVisual();
     }

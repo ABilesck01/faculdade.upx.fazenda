@@ -54,6 +54,15 @@ public class BuildingSystem : MonoBehaviour
     {
         if (building == null) return;
 
+        if(!PlayerMoney.instance.SpendCoins(building.price))
+        {
+            building = null;
+            Debug.Log("Not nough money!");
+            MessageBox.Instance.ShowMessage("Dinheiro insuficiente!");
+            onPlaceObject?.Invoke(this, null);
+            return;
+        }
+
         grid.GetXZ(lastPosition, out int x, out int z);
 
         List<Vector2Int> gridPositionList = building.GetGridPositionList(new Vector2Int(x, z), dir);
