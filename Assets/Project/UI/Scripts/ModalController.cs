@@ -22,6 +22,10 @@ public class ModalController : MonoBehaviour
         {
             OpenModalWithAnimation();
         }
+        else
+        {
+            gameObject.SetActive(true);
+        }
     }
 
     public void CloseModal()
@@ -29,6 +33,10 @@ public class ModalController : MonoBehaviour
         if(animator != null)
         {
             CloseModalWithAnimation();
+        }
+        else
+        {
+            gameObject.SetActive(false);
         }
     }
 

@@ -101,6 +101,13 @@ public class BuildingSystem : MonoBehaviour
         }
     }
 
+    public void CancelBuilding()
+    {
+        building = null;
+        onPlaceObject?.Invoke(this, null);
+        return;
+    }
+
     private void DemolishObject()
     {
         if (Input.GetMouseButtonDown(1))

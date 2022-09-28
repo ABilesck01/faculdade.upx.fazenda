@@ -28,14 +28,6 @@ public class BuildingSystemMenuController : MonoBehaviour
         MyBuildingSystem.SetBuilding(building);
     }
 
-    public void btnConfirm_Click()
-    {
-        BuildingSystem.instance.PlaceObject();
-    }
-
-    public void btnRotate_Click()
-    {
-        BuildingSystem.instance.ManageRotation();
-    }
+    
 
 }

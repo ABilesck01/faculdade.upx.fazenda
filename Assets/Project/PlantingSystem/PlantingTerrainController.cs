@@ -10,7 +10,7 @@ public class PlantingTerrainController : MonoBehaviour
 
     private MeshFilter meshFilter;
 
-    private bool canPlant = false;
+    public bool CanPlant = false;
     private int currentUses = 0;
 
     private void Start()
@@ -19,18 +19,20 @@ public class PlantingTerrainController : MonoBehaviour
     }
 
     [ContextMenu("Prepare Terrain")]
-    private void PrepareTerrain()
+    public void PrepareTerrain()
     {
-        if (canPlant) return;
+        if (CanPlant) return;
 
-        canPlant = true;
+        CanPlant = true;
         meshFilter.mesh = readyMesh;
     }
 
     [ContextMenu("Get Plant")]
-    private void GetPlant()
+    public void GetPlant()
     {
-        canPlant = false;
+        Debug.Log("get plant");
+
+        CanPlant = false;
         meshFilter.mesh = rawMesh;
         currentUses++;
         if (currentUses >= maxUses)
