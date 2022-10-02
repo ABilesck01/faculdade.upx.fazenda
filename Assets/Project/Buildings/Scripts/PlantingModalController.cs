@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlantingAreaController : MonoBehaviour
+public class PlantingModalController : MonoBehaviour
 {
     [SerializeField] private ModalController noPreparedModalController;
     [SerializeField] private ModalController preparedModalController;

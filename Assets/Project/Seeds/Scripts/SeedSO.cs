@@ -9,7 +9,7 @@ public class SeedSO : ScriptableObject
     public Sprite Icon;
     public int BuyCost;
     public int SellCost;
-    public float TimeToFullGrow;
+    public int TimeToFullGrow;
     public GameObject stepOne;
     public GameObject stepTwo;
     public GameObject stepTree;

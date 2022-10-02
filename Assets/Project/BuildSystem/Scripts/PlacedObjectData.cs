@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 [System.Serializable]
 public class PlacedObjectData
@@ -10,6 +11,7 @@ public class PlacedObjectData
     public float worldPos_x;
     public float worldPos_y;
     public float worldPos_z;
+    public string BuildingData;
 
 }
 

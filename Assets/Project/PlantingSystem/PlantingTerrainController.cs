@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,9 @@ public class PlantingTerrainController : MonoBehaviour
     public bool CanPlant = false;
     private int currentUses = 0;
 
+    public event EventHandler OnPrepareTerrain;
+    public event EventHandler OnGetPlant;
+
     private void Start()
     {
         meshFilter = GetComponentInChildren<MeshFilter>();
@@ -23,15 +27,29 @@ public class PlantingTerrainController : MonoBehaviour
     {
         if (CanPlant) return;
 
+        OnPrepareTerrain?.Invoke(this, null);
         CanPlant = true;
         meshFilter.mesh = readyMesh;
+    }
+
+    public void UpdateMesh(int state)
+    {
+        if(state == 0)
+        {
+            CanPlant = false;
+            meshFilter.mesh = rawMesh;
+        }
+        else if(state == 1)
+        {
+            CanPlant = true;
+            meshFilter.mesh = readyMesh;
+        }
     }
 
     [ContextMenu("Get Plant")]
     public void GetPlant()
     {
-        Debug.Log("get plant");
-
+        OnGetPlant?.Invoke(this, null);
         CanPlant = false;
         meshFilter.mesh = rawMesh;
         currentUses++;

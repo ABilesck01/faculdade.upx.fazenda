@@ -1940,6 +1940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 473501723}
   - component: {fileID: 473501722}
+  - component: {fileID: 473501724}
   m_Layer: 0
   m_Name: Database
   m_TagString: Untagged
@@ -1978,6 +1979,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &473501724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473501721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a172f56309f45104781276f0c454b3f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seeds:
+  - {fileID: 11400000, guid: 6727741785fad7f44b06d43b0cb2617f, type: 2}
+  - {fileID: 11400000, guid: e1f1bcfa14480364bad32bb98d82d8b9, type: 2}
+  - {fileID: 11400000, guid: f19d3e60014921c4689989f3bdd799fd, type: 2}
 --- !u!1 &492613428
 GameObject:
   m_ObjectHideFlags: 0
