@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65bb361ddbbeb064288b9ef74effd5a6, type: 3}
+  m_Name: AreaDePlantacao
+  m_EditorClassIdentifier: 
+  nameString: "Area de planta\xE7\xE3o"
+  prefab: {fileID: 2087413765667727362, guid: 8356b1cc7da54854c8b21b513f5e544f, type: 3}
+  visual: {fileID: 762915268434967992, guid: e4e4dade5045a0740b971cf84a95b303, type: 3}
+  width: 1
+  height: 1
+  price: 50
+  paidPrice: 0
+  icon: {fileID: 21300000, guid: 70fb350d820bffa4ba2b4452b74705cf, type: 3}

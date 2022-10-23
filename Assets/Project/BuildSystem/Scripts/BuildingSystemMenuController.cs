@@ -12,6 +12,8 @@ public class BuildingSystemMenuController : MonoBehaviour
 
     private void Start()
     {
+        Buildings = BuildingsDatabase.instance.GetAllBuildings();
+
         foreach (BuildingTypeSO item in Buildings)
         {
             GameObject gameObject = Instantiate(MenuItem, MenuParent);
@@ -26,14 +28,6 @@ public class BuildingSystemMenuController : MonoBehaviour
         MyBuildingSystem.SetBuilding(building);
     }
 
-    public void btnConfirm_Click()
-    {
-        BuildingSystem.instance.PlaceObject();
-    }
-
-    public void btnRotate_Click()
-    {
-        BuildingSystem.instance.ManageRotation();
-    }
+    
 
 }

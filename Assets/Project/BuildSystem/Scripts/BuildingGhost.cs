@@ -2,17 +2,21 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using EventSystem = UnityEngine.EventSystems.EventSystem;
 
 public class BuildingGhost : MonoBehaviour
 {
-    public bool follow;
-    public GameObject canvas;
-    public BoxCollider boxCollider;
+    public bool Follow;
+    public GameObject BuildingCanvas;
+    public GameObject MainCanvas;
+    public BoxCollider BoxCollider;
 
     private Transform _transform;
     private Transform visual;
     private Vector3 startPosition;
+    [SerializeField] private Button confirmButton;
 
     private void Start()
     {
@@ -30,9 +34,10 @@ public class BuildingGhost : MonoBehaviour
 
     private void Instance_onPlaceObject(object sender, EventArgs e)
     {
-        canvas.SetActive(false);
+        BuildingCanvas.SetActive(false);
+        MainCanvas.SetActive(true);
 
-        follow = false;
+        Follow = false;
 
         if (visual != null)
         {
@@ -42,16 +47,17 @@ public class BuildingGhost : MonoBehaviour
         _transform.position = startPosition;
     }
 
-    private void Instance_onSelectedChange(object sender, System.EventArgs e)
+    private void Instance_onSelectedChange(object sender, EventArgs e)
     {
         RefreshVisual();
     }
 
     private void RefreshVisual()
     {
-        canvas.SetActive(true);
+        BuildingCanvas.SetActive(true);
+        MainCanvas.SetActive(false);
 
-        follow = true;
+        Follow = true;
 
         if (visual != null)
         {
@@ -72,7 +78,7 @@ public class BuildingGhost : MonoBehaviour
         ChangeFollowByKeyboard();
         if(Input.GetMouseButtonUp(0))
         {
-            follow = false;
+            Follow = false;
         }
     }
 
@@ -80,14 +86,14 @@ public class BuildingGhost : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            follow = true;
+            Follow = true;
         }
     }
 
     private void ChangeFollowByKeyboard()
     {
         if (Input.GetKeyDown(KeyCode.F))
-            follow = !follow;
+            Follow = !Follow;
     }
 
     private void VisualFollow()
@@ -97,7 +103,7 @@ public class BuildingGhost : MonoBehaviour
         if (BuildingSystem.instance.isPointerOverUI())
             return;
 
-        if (follow)
+        if (Follow)
         {
             Vector3 targetPosition = BuildingSystem.instance.GetMouseGridPosition();
             targetPosition.y = 2f;

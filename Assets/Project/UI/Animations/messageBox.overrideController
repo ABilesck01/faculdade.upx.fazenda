@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: messageBox
+  m_Controller: {fileID: 9100000, guid: e76835f35655af94cb6d78765b32673a, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a93cb831fb2e022459ef243bbc5bd648, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: e02c1e9c19833ba40b69a49269565121, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8d4d68cef7762284c98c210e30401f74, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 23d35cfd23e439c43ae41dffcc34f945, type: 2}

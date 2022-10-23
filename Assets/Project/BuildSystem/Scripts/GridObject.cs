@@ -15,11 +15,11 @@ public class GridObject
         this.grid = grid;
         this.x = x;
         this.z = z;
-        this.placedObject = null;
     }
 
     public void SetPlacedObject(PlacedObject t)
     {
+        Debug.Log(t.gameObject.name);
         placedObject = t;
     }
 

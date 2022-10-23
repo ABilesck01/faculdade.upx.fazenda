@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9449a2f5c6559ef4e89751a57e828b13, type: 3}
+  m_Name: Corn
+  m_EditorClassIdentifier: 
+  SeedName: Milho
+  Icon: {fileID: 21300000, guid: c3cbb6f03e017dc4ab0437ef71390a6b, type: 3}
+  BuyCost: 5
+  SellCost: 10
+  TimeToFullGrow: 10
+  stepOne: {fileID: 919132149155446097, guid: 34ca6bf2cca1e884fa08e73d69b5f86d, type: 3}
+  stepTwo: {fileID: 919132149155446097, guid: 995c135b88d94114f9840ca9b23f36cf, type: 3}
+  stepTree: {fileID: 919132149155446097, guid: 82bcb2e00d6f35a4bbafe51cf6bdf0a6, type: 3}
