@@ -30,11 +30,13 @@ public class PlacedObject : MonoBehaviour
         placedObjectData.worldPos_z = worldPosition.z;
         placedObjectData.BuildingData = data;
 
-        PlayerFarmData.instance.AddData(placedObjectData);
+        PlayerFarmDataController.instance.AddData(placedObjectData);
+        placedObject.placedObjectData = placedObjectData;
 
         return placedObject;
     }
 
+    private PlacedObjectData placedObjectData;
     private BuildingTypeSO buildingTypeSO;
     private Vector2Int origin;
     private BuildingTypeSO.Dir dir;
@@ -48,6 +50,8 @@ public class PlacedObject : MonoBehaviour
 
     public void DestroySelf()
     {
+        PlayerFarmDataController.instance.RemoveData(placedObjectData);
+
         Destroy(gameObject);
     }
 }

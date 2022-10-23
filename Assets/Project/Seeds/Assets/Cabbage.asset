@@ -16,7 +16,7 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: 1d98c820f810bb749bd30e48e85abfa8, type: 3}
   BuyCost: 25
   SellCost: 45
-  TimeToFullGrow: 10
+  TimeToFullGrow: 300
   stepOne: {fileID: 919132149155446097, guid: 305d31abd679a3b4a927b3519995b2c3, type: 3}
   stepTwo: {fileID: 919132149155446097, guid: 432aaeb0f2095fa4cbdbe3b4530d409a, type: 3}
   stepTree: {fileID: 919132149155446097, guid: 0861c93ccb16f1743bd3fe9e0d2df3fd, type: 3}

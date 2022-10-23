@@ -32,13 +32,6 @@ public class BuildingSystem : MonoBehaviour
     }
     private void Update()
     {
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    PlaceObject();
-        //}
-
-        DemolishObject();
-
         if (Input.GetKeyDown(KeyCode.R))
         {
             ManageRotation();
@@ -50,12 +43,14 @@ public class BuildingSystem : MonoBehaviour
         return grid.GetCellSize();
     }
 
-    public void PlaceObject()
+    public void PlaceObjectAtPosition(Vector3 position, 
+        bool willSpendMoney = true)
     {
         if (building == null) return;
 
-        if(!PlayerMoney.instance.SpendCoins(building.price))
+        if (willSpendMoney && !PlayerMoney.instance.SpendCoins(building.price))
         {
+            PlayerMoney.instance.SpendCoins(building.price);
             building = null;
             Debug.Log("Not nough money!");
             MessageBox.Instance.ShowMessage("Dinheiro insuficiente!");
@@ -63,10 +58,40 @@ public class BuildingSystem : MonoBehaviour
             return;
         }
 
+        grid.GetXZ(position, out int x, out int z);
+
+        List<Vector2Int> gridPositionList =
+            building.GetGridPositionList(new Vector2Int(x, z), dir);
+
+        BuildBuilding(x, z, gridPositionList, CanBuild(gridPositionList));
+    }
+
+    public void PlaceObject(bool willSpendMoney = true)
+    {
+        if (building == null) return;
+
+        if (willSpendMoney && !PlayerMoney.instance.SpendCoins(building.price))
+        {
+            PlayerMoney.instance.SpendCoins(building.price);
+            building = null;
+            Debug.Log("Not nough money!");
+            MessageBox.Instance.ShowMessage("Dinheiro insuficiente!");
+            onPlaceObject?.Invoke(this, null);
+            return;
+        }
+
+        PlayerFarmDataController.instance.UpdateJsonData();
+
         grid.GetXZ(lastPosition, out int x, out int z);
 
-        List<Vector2Int> gridPositionList = building.GetGridPositionList(new Vector2Int(x, z), dir);
+        List<Vector2Int> gridPositionList =
+            building.GetGridPositionList(new Vector2Int(x, z), dir);
 
+        BuildBuilding(x, z, gridPositionList, CanBuild(gridPositionList));
+    }
+
+    private bool CanBuild(List<Vector2Int> gridPositionList)
+    {
         bool canBuild = true;
         foreach (Vector2Int item in gridPositionList)
         {
@@ -77,6 +102,11 @@ public class BuildingSystem : MonoBehaviour
             }
         }
 
+        return canBuild;
+    }
+
+    private void BuildBuilding(int x, int z, List<Vector2Int> gridPositionList, bool canBuild)
+    {
         if (canBuild)
         {
             Vector2Int rotationOffset = building.GetRotationOffset(dir);
@@ -93,6 +123,7 @@ public class BuildingSystem : MonoBehaviour
 
             building = null;
             dir = BuildingTypeSO.Dir.Down;
+            PlayerFarmDataController.instance.UpdateJsonData();
             onPlaceObject?.Invoke(this, null);
         }
         else
@@ -127,9 +158,34 @@ public class BuildingSystem : MonoBehaviour
         }
     }
 
+    public void DeleteBuilding(Vector3 position)
+    {
+        //GridObject gridObject = grid.GetValue(position.x, position.y);
+        GridObject gridObject = grid.GetValue(position);
+        PlacedObject placedObject = gridObject.GetPlacedObject();
+        if (placedObject != null)
+        {
+            placedObject.DestroySelf();
+            List<Vector2Int> gridPositionList = placedObject.getGridPositionList();
+
+            foreach (Vector2Int item in gridPositionList)
+            {
+                grid.GetValue(item.x, item.y).ClearPlacedObject();
+            }
+
+            PlayerFarmDataController.instance.UpdateJsonData();
+        }
+    }
+
+
     public void ManageRotation()
     {
         dir = BuildingTypeSO.GetNextDir(dir);
+    }
+
+    public void SetDir(BuildingTypeSO.Dir dir)
+    {
+        this.dir = dir;
     }
 
     public void SetBuilding(BuildingTypeSO building)
@@ -178,23 +234,6 @@ public class BuildingSystem : MonoBehaviour
             return GetMousePosition();
         }
     }
-
-    //private bool PointerOverUI()
-    //{
-    //    _eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-    //    EventSystem.current.RaycastAll(_eventDataCurrentPosition, _rayResults);
-
-    //    List<RectTransform> uiResults = new List<RectTransform>();
-    //    foreach (var rayResult in _rayResults)
-    //    {
-    //        if (rayResult.gameObject.TryGetComponent(out RectTransform rect))
-    //        {
-    //            uiResults.Add(rect);
-    //        }
-    //    }
-
-    //    return uiResults.Count > 0;
-    //}
 
     public bool isPointerOverUI()
     {

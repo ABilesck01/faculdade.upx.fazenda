@@ -16,8 +16,11 @@ public class PlacedObjectData
 }
 
 [System.Serializable]
-public class PlacedObjectDataList
+public class PlayerFormData
 {
-    public List<PlacedObjectData> List;
+    public string FarmName = "Fazenda Feliz =D";
+    public int Currency = 1000;
+    public int CurrencyPaid = 0;
+    public List<PlacedObjectData> PlacedObjects;
 }
 

@@ -65,7 +65,7 @@ public class PlantingGrow : MonoBehaviour
             {
                 btnHarvest_click();
             });
-
+        PlayerFarmDataController.instance.UpdateJsonData();
         OnPlantSeed?.Invoke(this, new OnPlantSeedEventArgs(currentSeed, startDate));
 
         ActvateState();
@@ -97,27 +97,26 @@ public class PlantingGrow : MonoBehaviour
             {
                 btnHarvest_click();
             });
-
+        PlayerFarmDataController.instance.UpdateJsonData();
         ActvateState();
     }
 
     private void btnHarvest_click()
     {
-        SeedSO seed;
         terrainController.GetPlant();
         ClearStates();
         PlantIsGrowing = false;
         PlantIsReady = false;
         timerModal.CloseModal();
-        seed = null;
+        currentSeed = null;
         startDate = DateTime.MinValue;
         currentGrowTime = 0;
+        PlayerFarmDataController.instance.UpdateJsonData();
         //TODO add seed
     }
 
     private void Update()
     {
-
         if (PlantIsGrowing)
         {
             currentGrowTime = (DateTime.Now - startDate).TotalSeconds;

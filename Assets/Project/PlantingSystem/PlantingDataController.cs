@@ -46,7 +46,7 @@ public class PlantingDataController : MonoBehaviour
 
     private void RetrieveData()
     {
-        string buildingJson = PlayerFarmData.instance.FindObjectDataByOrigin(placedObject.Origin).BuildingData;
+        string buildingJson = PlayerFarmDataController.instance.FindObjectDataByOrigin(placedObject.Origin).BuildingData;
         
         if(!string.IsNullOrEmpty(buildingJson))
         {
@@ -71,8 +71,8 @@ public class PlantingDataController : MonoBehaviour
     private void UpdateData()
     {
         string buildingJson = JsonUtility.ToJson(data);
-        PlayerFarmData.instance.FindObjectDataByOrigin(placedObject.Origin).BuildingData = buildingJson;
-        PlayerFarmData.instance.UpdateJsonData();
+        PlayerFarmDataController.instance.FindObjectDataByOrigin(placedObject.Origin).BuildingData = buildingJson;
+        PlayerFarmDataController.instance.UpdateJsonData();
 
     }
 }

@@ -3,14 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerFarmData : MonoBehaviour
+public class PlayerFarmDataController : MonoBehaviour
 {
-    public PlacedObjectDataList objects;
+    public PlayerFormData objects;
 
     [TextArea(5, 10)]
     public string json;
 
-    public static PlayerFarmData instance;
+    public static PlayerFarmDataController instance;
 
     public static string path;
 
@@ -30,14 +30,21 @@ public class PlayerFarmData : MonoBehaviour
 
     public void AddData(PlacedObjectData data)
     {
-        objects.List.Add(data);
+        objects.PlacedObjects.Add(data);
     }
+
+    public void RemoveData(PlacedObjectData data)
+    {
+        objects.PlacedObjects.Remove(data);
+    }
+
 
     private void OnApplicationQuit()
     {
         SaveData();
     }
 
+    [ContextMenu("UpdateJsonData")]
     public void UpdateJsonData()
     {
         json = JsonUtility.ToJson(objects);
@@ -53,30 +60,35 @@ public class PlayerFarmData : MonoBehaviour
     [ContextMenu("RetrieveData")]
     public void RetrieveData()
     {
+        Debug.Log("Retrieve data");
+
         json = System.IO.File.ReadAllText(path);
 
-        PlacedObjectDataList retrievedObjects = JsonUtility.FromJson<PlacedObjectDataList>(json);
+        PlayerFormData retrievedObjects = JsonUtility.FromJson<PlayerFormData>(json);
 
-        foreach (PlacedObjectData item in retrievedObjects.List)
+        Debug.Log("retrievedObjects " + retrievedObjects.PlacedObjects.Count);
+
+        foreach (PlacedObjectData item in retrievedObjects.PlacedObjects)
         {
             Vector3 worldPos = new Vector3
             (
                 item.worldPos_x, item.worldPos_y, item.worldPos_z
             );
-
-            Vector2Int origin = new Vector2Int
-            (
-                item.origin_x, item.origin_y
-            );
             BuildingTypeSO.Dir dir = (BuildingTypeSO.Dir)item.direction;
             BuildingTypeSO building = BuildingsDatabase.instance.GetBuildingByIndex(item.BuildingId);
 
-            PlacedObject.Create(worldPos, origin, dir, building, item.BuildingData);
+            Debug.Log("Building " + building.name);
+
+            BuildingSystem.instance.SetBuilding(building);
+            BuildingSystem.instance.SetDir(dir);
+
+            BuildingSystem.instance.PlaceObjectAtPosition
+                (worldPos, false);
         }
     }
 
     public PlacedObjectData FindObjectDataByOrigin(Vector2Int origin)
     {
-        return objects.List.Find(data => data.origin_x == origin.x && data.origin_y == origin.y);
+        return objects.PlacedObjects.Find(data => data.origin_x == origin.x && data.origin_y == origin.y);
     }
 }

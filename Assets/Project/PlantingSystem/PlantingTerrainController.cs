@@ -17,9 +17,12 @@ public class PlantingTerrainController : MonoBehaviour
     public event EventHandler OnPrepareTerrain;
     public event EventHandler OnGetPlant;
 
+    Vector2Int pos;
+
     private void Start()
     {
         meshFilter = GetComponentInChildren<MeshFilter>();
+        pos = GetComponent<PlacedObject>().Origin;
     }
 
     [ContextMenu("Prepare Terrain")]
@@ -55,8 +58,7 @@ public class PlantingTerrainController : MonoBehaviour
         currentUses++;
         if (currentUses >= maxUses)
         {
-            Destroy(gameObject);
-            //remove from grid
+            BuildingSystem.instance.DeleteBuilding(transform.position);
         }
     }
 }

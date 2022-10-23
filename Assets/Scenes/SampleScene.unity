@@ -1302,7 +1302,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objects:
-    List: []
+    FarmName: Fazenda Feliz =D
+    Currency: 1000
+    CurrencyPaid: 0
+    PlacedObjects: []
   json: 
 --- !u!4 &323975486
 Transform:
@@ -1388,7 +1391,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6c499e7bc2bb2eb4fa182de1f74bb911, type: 2}
+  - {fileID: 2100000, guid: 3ff28269c3b50fb45b870bfd31d4258f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1425,14 +1428,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333709060}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0.6532815, y: 0.27059805, z: -0.27059805, w: 0.6532815}
   m_LocalPosition: {x: 50, y: 0, z: 50}
-  m_LocalScale: {x: 100, y: 100, z: 100}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 500, y: 500, z: 500}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 45, z: 0}
 --- !u!1 &340187006
 GameObject:
   m_ObjectHideFlags: 0
@@ -2416,7 +2419,6 @@ GameObject:
   m_Component:
   - component: {fileID: 610595720}
   - component: {fileID: 610595719}
-  - component: {fileID: 610595721}
   m_Layer: 0
   m_Name: BuildingSystem
   m_TagString: Untagged
@@ -2459,24 +2461,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &610595721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610595718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecc040ec48710ef4d931e9602e278792, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grid:
-    width: 0
-    height: 0
-    cellSize: 0
-    originPosition: {x: 0, y: 0, z: 0}
-  placedObjects: []
 --- !u!1 &654471090
 GameObject:
   m_ObjectHideFlags: 0
