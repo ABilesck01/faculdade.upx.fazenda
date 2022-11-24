@@ -13,4 +13,5 @@ public class SeedSO : ScriptableObject
     public GameObject stepOne;
     public GameObject stepTwo;
     public GameObject stepTree;
+    public ItemSO seedItem;
 }
