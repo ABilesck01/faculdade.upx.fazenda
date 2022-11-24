@@ -16,6 +16,7 @@ public class ModalController : MonoBehaviour
             background.SetActive(false);
     }
 
+    [ContextMenu("Open")]
     public void OpenModal()
     {
         if(animator != null)
@@ -28,6 +29,7 @@ public class ModalController : MonoBehaviour
         }
     }
 
+    [ContextMenu("Close")]
     public void CloseModal()
     {
         if(animator != null)

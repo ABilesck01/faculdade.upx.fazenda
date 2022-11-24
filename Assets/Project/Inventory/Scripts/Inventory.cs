@@ -1,14 +1,12 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 [Serializable]
 public class Inventory
 {
     private List<ItemInInventory> itemList;
 
-    public int MaxAmount = 14;
+    public int MaxAmount;
 
     public event EventHandler OnListUpdate;
 
@@ -81,7 +79,19 @@ public class Inventory
 
     public bool InventoryIsFull()
     {
-        return itemList.Count >= MaxAmount;
+        return GetCurrentAmount() >= MaxAmount;
+    }
+
+    public int GetCurrentAmount()
+    {
+        int amount = 0;
+
+        foreach (ItemInInventory item in itemList)
+        {
+            amount += item.Amount;
+        }
+
+        return amount;
     }
 
     public List<ItemInInventory> GetItemList()

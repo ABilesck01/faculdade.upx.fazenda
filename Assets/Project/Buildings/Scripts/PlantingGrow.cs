@@ -18,6 +18,7 @@ public class PlantingGrow : MonoBehaviour
     public DateTime startDate;
 
 
+    private PlayerInventory inventory;
     private double currentGrowTime = 0;
     private int maxGrowTime = 0;
     private SeedSO currentSeed;
@@ -60,6 +61,7 @@ public class PlantingGrow : MonoBehaviour
         timerSlider.maxValue = maxGrowTime;
         timerSlider.value = (float)currentGrowTime;
         btnHarvest.SetActive(false);
+        btnHarvest.GetComponent<Button>().onClick.RemoveAllListeners();
         btnHarvest.GetComponent<Button>().onClick.AddListener(
             () =>
             {
@@ -103,16 +105,24 @@ public class PlantingGrow : MonoBehaviour
 
     private void btnHarvest_click()
     {
-        terrainController.GetPlant();
-        ClearStates();
-        PlantIsGrowing = false;
-        PlantIsReady = false;
-        timerModal.CloseModal();
-        currentSeed = null;
-        startDate = DateTime.MinValue;
-        currentGrowTime = 0;
-        PlayerFarmDataController.instance.UpdateJsonData();
-        //TODO add seed
+        if(inventory.AddItem(currentSeed.seedItem))
+        {
+            terrainController.GetPlant();
+            ClearStates();
+            PlantIsGrowing = false;
+            PlantIsReady = false;
+            timerModal.CloseModal();
+            currentSeed = null;
+            startDate = DateTime.MinValue;
+            currentGrowTime = 0;
+            PlayerFarmDataController.instance.UpdateJsonData();
+        }
+
+    }
+
+    private void Start()
+    {
+        inventory = FindObjectOfType<PlayerInventory>();
     }
 
     private void Update()

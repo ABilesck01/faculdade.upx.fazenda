@@ -7,20 +7,9 @@ public class ItemSO : ScriptableObject
 {
     public int id;
     public string Name;
-    public string Description;
     public Sprite Icon;
     public bool IsStackable;
-    public ItemType Type;
-    public GameObject WorldGfx;
-    public BuildingTypeSO buildingType;
+    public float price;
     public int Amount;
-}
-
-public enum ItemType
-{
-    misc,
-    tool,
-    food,
-    building
 }
 

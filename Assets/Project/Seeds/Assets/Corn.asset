@@ -20,3 +20,4 @@ MonoBehaviour:
   stepOne: {fileID: 919132149155446097, guid: 34ca6bf2cca1e884fa08e73d69b5f86d, type: 3}
   stepTwo: {fileID: 919132149155446097, guid: 995c135b88d94114f9840ca9b23f36cf, type: 3}
   stepTree: {fileID: 919132149155446097, guid: 82bcb2e00d6f35a4bbafe51cf6bdf0a6, type: 3}
+  seedItem: {fileID: 11400000, guid: e4be2edf3f72f7b418d0fbfae2043d57, type: 2}
