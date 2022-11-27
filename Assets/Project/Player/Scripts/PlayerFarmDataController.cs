@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Windows;
 
 public class PlayerFarmDataController : MonoBehaviour
 {
@@ -61,30 +62,40 @@ public class PlayerFarmDataController : MonoBehaviour
     public void RetrieveData()
     {
         Debug.Log("Retrieve data");
-
-        json = System.IO.File.ReadAllText(path);
-
-        PlayerFormData retrievedObjects = JsonUtility.FromJson<PlayerFormData>(json);
-
-        Debug.Log("retrievedObjects " + retrievedObjects.PlacedObjects.Count);
-
-        foreach (PlacedObjectData item in retrievedObjects.PlacedObjects)
+        
+        if(!File.Exists(path)) return;
+        try
         {
-            Vector3 worldPos = new Vector3
-            (
-                item.worldPos_x, item.worldPos_y, item.worldPos_z
-            );
-            BuildingTypeSO.Dir dir = (BuildingTypeSO.Dir)item.direction;
-            BuildingTypeSO building = BuildingsDatabase.instance.GetBuildingByIndex(item.BuildingId);
+            json = System.IO.File.ReadAllText(path);
 
-            Debug.Log("Building " + building.name);
+            PlayerFormData retrievedObjects = JsonUtility.FromJson<PlayerFormData>(json);
 
-            BuildingSystem.instance.SetBuilding(building);
-            BuildingSystem.instance.SetDir(dir);
+            Debug.Log("retrievedObjects " + retrievedObjects.PlacedObjects.Count);
 
-            BuildingSystem.instance.PlaceObjectAtPosition
-                (worldPos, false);
+            foreach (PlacedObjectData item in retrievedObjects.PlacedObjects)
+            {
+                Vector3 worldPos = new Vector3
+                (
+                    item.worldPos_x, item.worldPos_y, item.worldPos_z
+                );
+                BuildingTypeSO.Dir dir = (BuildingTypeSO.Dir)item.direction;
+                BuildingTypeSO building = BuildingsDatabase.instance.GetBuildingByIndex(item.BuildingId);
+
+                Debug.Log("Building " + building.name);
+
+                BuildingSystem.instance.SetBuilding(building);
+                BuildingSystem.instance.SetDir(dir);
+
+                BuildingSystem.instance.PlaceObjectAtPosition
+                    (worldPos, false);
+            }
         }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+        
     }
 
     public PlacedObjectData FindObjectDataByOrigin(Vector2Int origin)

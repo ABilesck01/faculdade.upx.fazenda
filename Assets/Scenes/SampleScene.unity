@@ -3115,7 +3115,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 403fbcf3fde9f994cb08a90ddad8a51e, type: 2}
   - {fileID: 11400000, guid: a4b64df6dc486a948a06c77da9ef7427, type: 2}
   - {fileID: 11400000, guid: b0e3f2ab8c446d34ba839c92770abc3b, type: 2}
-  - {fileID: 11400000, guid: 403fbcf3fde9f994cb08a90ddad8a51e, type: 2}
 --- !u!4 &473501723
 Transform:
   m_ObjectHideFlags: 0
@@ -3935,7 +3934,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b0e3f2ab8c446d34ba839c92770abc3b, type: 2}
   - {fileID: 11400000, guid: 403fbcf3fde9f994cb08a90ddad8a51e, type: 2}
   - {fileID: 11400000, guid: a4b64df6dc486a948a06c77da9ef7427, type: 2}
-  - {fileID: 11400000, guid: de813a25c37c849428dfb6714d6399b1, type: 2}
   template: {fileID: 1132814356}
   container: {fileID: 1156840407}
   modalController: {fileID: 654471093}
@@ -7824,7 +7822,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1126176572
 RectTransform:
   m_ObjectHideFlags: 0
