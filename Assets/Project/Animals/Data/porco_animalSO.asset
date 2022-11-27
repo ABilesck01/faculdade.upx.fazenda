@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: porco_animalSO
   m_EditorClassIdentifier: 
   name: Porco
-  Visual: {fileID: -8679921383154817045, guid: cd6c4dbc97cac2c44bbdf087f0a7838d, type: 3}
+  Visual: {fileID: 1604214636713075637, guid: f0a955cefa470c84aacf2d581b7da342, type: 3}
   Price: 5
+  timeToFeed: 0
+  feedCost: 50

@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: vaca_animalSO
   m_EditorClassIdentifier: 
   name: Vaca
-  Visual: {fileID: -8679921383154817045, guid: a09cd1ed9c8c1c64092b9e88f78aa763, type: 3}
+  Visual: {fileID: 5739559681139258318, guid: 1c1a637464950cc458b5347dcc3ab8a2, type: 3}
   Price: 75
+  timeToFeed: 0
+  feedCost: 50

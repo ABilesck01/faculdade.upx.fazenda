@@ -1,9 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ModalController : MonoBehaviour
 {
+    public ModalEvent onOpenModal;    
+    public ModalEvent onCloseModal;    
+    
     private Animator animator;
 
     [Header("Background - Optional")]
@@ -27,6 +32,8 @@ public class ModalController : MonoBehaviour
         {
             gameObject.SetActive(true);
         }
+        
+        onOpenModal?.Invoke();
     }
 
     [ContextMenu("Close")]
@@ -40,6 +47,8 @@ public class ModalController : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+        
+        onCloseModal?.Invoke();
     }
 
     private void OpenModalWithAnimation()
@@ -56,3 +65,5 @@ public class ModalController : MonoBehaviour
         animator.SetBool("open", false);
     }
 }
+[Serializable]
+public class ModalEvent : UnityEvent { }

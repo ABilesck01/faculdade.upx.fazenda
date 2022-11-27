@@ -9,7 +9,7 @@ public class BreedingPlaceController : MonoBehaviour
     [SerializeField] private int maxAnimalsCount = 3;
     [SerializeField] private List<AnimalSO> currentAnimals = new List<AnimalSO>();
     [SerializeField] private List<Transform> animalsPosition = new List<Transform>();
-    [SerializeField] private List<AnimalController> animals = new List<AnimalController>();
+    [SerializeField] public List<AnimalController> animals = new List<AnimalController>();
     [Header("Modal")] 
     [SerializeField] private ModalController modal;
     [SerializeField] private BreedingModal breedingModal;
@@ -27,6 +27,7 @@ public class BreedingPlaceController : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             breedingModal.SetController(this);
+            animalList.SetController(this);
             
             modal.OpenModal();
         }
@@ -44,7 +45,9 @@ public class BreedingPlaceController : MonoBehaviour
         {
             currentAnimals.Add(animal);
             int count = currentAnimals.Count - 1;
-            animals.Add(Instantiate(animal.Visual, animalsPosition[count]));
+            AnimalController newAnimal = Instantiate(animal.Visual, animalsPosition[count]);
+            newAnimal.SetAsset(animal);
+            animals.Add(newAnimal);
             
         }
         else

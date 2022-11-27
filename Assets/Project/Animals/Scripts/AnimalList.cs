@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +9,17 @@ public class AnimalList : MonoBehaviour
     [SerializeField] private AnimalListItem template;
 
     private BreedingPlaceController _currentPlaceController;
-    
+    private ModalController _modalController;
+
+    private void Awake()
+    {
+        _modalController = GetComponent<ModalController>();
+    }
+
     public void SetController(BreedingPlaceController current)
     {
         _currentPlaceController = current;
+        FillList(_currentPlaceController.animals);
     }
     
     private void FillList(List<AnimalController> animals)
@@ -32,6 +40,7 @@ public class AnimalList : MonoBehaviour
                 () =>
                 {
                     animal.PlayAction();
+                    _modalController.CloseModal();
                 });
             
             item.gameObject.SetActive(true);
