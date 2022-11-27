@@ -62,11 +62,7 @@ public class PlantingGrow : MonoBehaviour
         timerSlider.value = (float)currentGrowTime;
         btnHarvest.SetActive(false);
         btnHarvest.GetComponent<Button>().onClick.RemoveAllListeners();
-        btnHarvest.GetComponent<Button>().onClick.AddListener(
-            () =>
-            {
-                btnHarvest_click();
-            });
+        btnHarvest.GetComponent<Button>().onClick.AddListener(btnHarvest_click);
         PlayerFarmDataController.instance.UpdateJsonData();
         OnPlantSeed?.Invoke(this, new OnPlantSeedEventArgs(currentSeed, startDate));
 
