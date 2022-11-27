@@ -29,7 +29,7 @@ public class PlayerInventory : MonoBehaviour
 
         if (inventory.InventoryIsFull())
         {
-            MessageBox.Instance.ShowMessage("Invent·rio est· cheio! Construa mais cilos");
+            MessageBox.Instance.ShowMessage("Invent√°rio est√° cheio! Construa mais cilos");
 
             return false;
         }

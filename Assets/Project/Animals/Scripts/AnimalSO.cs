@@ -8,5 +8,6 @@ public class AnimalSO : ScriptableObject
     public int Price;
     [Tooltip("Time given in seconds")]public float timeToFeed;
     public int feedCost = 50;
+    public ItemSO item;
 
 }

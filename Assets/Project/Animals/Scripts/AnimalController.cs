@@ -8,7 +8,8 @@ public class AnimalController : MonoBehaviour
 {
     [SerializeField] private AnimalSO asset;
     [SerializeField] private GameObject baloon;
-
+    
+    private PlayerInventory inventory;
     public double TimeFeeded = 0;
     
     private DateTime lastTimeFeeded;
@@ -18,6 +19,11 @@ public class AnimalController : MonoBehaviour
     public string Name => asset.name;
     
     public int PriceToFeed => asset.feedCost;
+    
+    private void Start()
+    {
+        inventory = FindObjectOfType<PlayerInventory>();
+    }
     
     private void Update()
     {
@@ -44,7 +50,10 @@ public class AnimalController : MonoBehaviour
         {
             if (hasItem)
             {
-                //TODO give item
+                if (inventory.AddItem(asset.item))
+                {
+                    hasItem = false;
+                }
             }
             else
             {
