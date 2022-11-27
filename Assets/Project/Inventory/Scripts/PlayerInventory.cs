@@ -10,7 +10,7 @@ public class PlayerInventory : MonoBehaviour
 
     private void Awake()
     {
-        ui_Inventory = FindObjectOfType<UI_inventory>();
+       
         inventory = new Inventory()
         {
             MaxAmount = this.maxAmount
@@ -20,6 +20,7 @@ public class PlayerInventory : MonoBehaviour
 
     private void Start()
     {
+        ui_Inventory = FindObjectOfType<UI_inventory>();
         ui_Inventory.SetInventory(inventory);
     }
 
