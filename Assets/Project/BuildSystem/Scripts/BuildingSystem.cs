@@ -129,6 +129,7 @@ public class BuildingSystem : MonoBehaviour
         else
         {
             Debug.Log("Cannot build here!");
+            MessageBox.Instance.ShowMessage("Não pode construir aqui!");
         }
     }
 
