@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class CameraTouchControls : MonoBehaviour
 {
-    [SerializeField]private Vector3 calculatedPos;
-    [SerializeField]private Vector3 transformPos;
-    
     [SerializeField] private Transform _transform;
+    [SerializeField] private int Yclamp;
+    [SerializeField] private int Xclamp;
+    
+    private Vector3 calculatedPos;
+    private Vector3 transformPos;
     private Vector3 startPos;
     private Vector3 currentPos;
     private Camera cam;
@@ -16,7 +18,6 @@ public class CameraTouchControls : MonoBehaviour
     private void Awake()
     {
         cam = Camera.main;
-        //_transform = transform;
     }
 
     private void Update()
@@ -41,8 +42,12 @@ public class CameraTouchControls : MonoBehaviour
 
         calculatedPos = (currentPos - startPos).normalized;
         transformPos = new Vector3(calculatedPos.x, 0, calculatedPos.y);
-        _transform.localPosition -= transformPos;
+        
+        Vector3 localPosition = _transform.localPosition - transformPos;
+        localPosition.x = Mathf.Clamp(localPosition.x, -Xclamp, Xclamp);
+        localPosition.z = Mathf.Clamp(localPosition.z, -Yclamp, Yclamp);
 
+        _transform.localPosition = localPosition;
     }
 
 }
