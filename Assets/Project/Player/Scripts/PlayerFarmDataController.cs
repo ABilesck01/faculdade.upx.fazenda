@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -63,7 +64,8 @@ public class PlayerFarmDataController : MonoBehaviour
     {
         Debug.Log("Retrieve data");
         
-        if(!File.Exists(path)) return;
+        if(!System.IO.File.Exists(path)) return;
+        
         try
         {
             json = System.IO.File.ReadAllText(path);
