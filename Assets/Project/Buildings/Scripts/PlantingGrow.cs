@@ -38,7 +38,7 @@ public class PlantingGrow : MonoBehaviour
         }
     }
 
-    public event EventHandler<OnPlantSeedEventArgs> OnPlantSeed;
+    public static event EventHandler<OnPlantSeedEventArgs> OnPlantSeed;
 
     public void PlantSeed(SeedSO seed)
     {

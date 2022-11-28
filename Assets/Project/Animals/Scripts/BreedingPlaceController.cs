@@ -15,6 +15,8 @@ public class BreedingPlaceController : MonoBehaviour
     [SerializeField] private BreedingModal breedingModal;
     [SerializeField] private AnimalList animalList;
 
+    public static event EventHandler OnBuyAnimal;
+    
     private void Start()
     {
         modal = GameObject.Find("BreedingModal").GetComponent<ModalController>();
@@ -49,6 +51,7 @@ public class BreedingPlaceController : MonoBehaviour
             newAnimal.SetAsset(animal);
             animals.Add(newAnimal);
             
+            OnBuyAnimal?.Invoke(this, EventArgs.Empty);
         }
         else
         {
