@@ -30,6 +30,8 @@ public class PlayerMoney : MonoBehaviour
         lblPaidCoins.text = _currentPaidCoin.ToString();
     }
 
+    public int GetCoins => _currentCoins;
+    
     public bool SpendCoins(int amount)
     {
         if (_currentCoins < amount)
