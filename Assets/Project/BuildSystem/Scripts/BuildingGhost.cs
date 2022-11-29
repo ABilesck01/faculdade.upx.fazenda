@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using EventSystem = UnityEngine.EventSystems.EventSystem;
 
 public class BuildingGhost : MonoBehaviour
 {
-    public bool Follow;
+    public bool IsDraging = false;
     public GameObject BuildingCanvas;
     public GameObject MainCanvas;
     public BoxCollider BoxCollider;
@@ -17,6 +18,13 @@ public class BuildingGhost : MonoBehaviour
     private Transform visual;
     private Vector3 startPosition;
     [SerializeField] private Button confirmButton;
+
+    public static BuildingGhost Current;
+
+    private void Awake()
+    {
+        Current = this;
+    }
 
     private void Start()
     {
@@ -37,7 +45,7 @@ public class BuildingGhost : MonoBehaviour
         BuildingCanvas.SetActive(false);
         MainCanvas.SetActive(true);
 
-        Follow = false;
+        IsDraging = false;
 
         if (visual != null)
         {
@@ -57,7 +65,7 @@ public class BuildingGhost : MonoBehaviour
         BuildingCanvas.SetActive(true);
         MainCanvas.SetActive(false);
 
-        Follow = true;
+        IsDraging = true;
 
         if (visual != null)
         {
@@ -78,32 +86,34 @@ public class BuildingGhost : MonoBehaviour
         ChangeFollowByKeyboard();
         if(Input.GetMouseButtonUp(0))
         {
-            Follow = false;
+            IsDraging = false;
         }
     }
 
     private void OnMouseOver()
     {
+        if(MouseController.Current.isPointerOverUI()) return;
+        
         if (Input.GetMouseButtonDown(0))
         {
-            Follow = true;
+            IsDraging = true;
         }
     }
 
     private void ChangeFollowByKeyboard()
     {
         if (Input.GetKeyDown(KeyCode.F))
-            Follow = !Follow;
+            IsDraging = !IsDraging;
     }
 
     private void VisualFollow()
     {
         if (!visual) return;
 
-        if (BuildingSystem.instance.isPointerOverUI())
+        if (MouseController.Current.isPointerOverUI())
             return;
 
-        if (Follow)
+        if (IsDraging)
         {
             Vector3 targetPosition = BuildingSystem.instance.GetMouseGridPosition();
             targetPosition.y = 2f;

@@ -20,7 +20,7 @@ public class PlantingDataController : MonoBehaviour
         plantingTerrainController.OnPrepareTerrain += PlantingTerrainController_OnPrepareTerrain;
         plantingTerrainController.OnGetPlant += PlantingTerrainController_OnGetPlant;
 
-        plantingGrow.OnPlantSeed += PlantingGrow_OnPlantSeed;
+        PlantingGrow.OnPlantSeed += PlantingGrow_OnPlantSeed;
 
         RetrieveData();
     }

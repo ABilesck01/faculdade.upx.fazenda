@@ -23,10 +23,15 @@ public class BuildingSystem : MonoBehaviour
     public event EventHandler onPlaceObject;
 
     private Grid<GridObject> grid;
+
+    private Camera cam;
+    
     private void Awake()
     {
         instance = this;
 
+        cam = Camera.main;
+        
         grid = new Grid<GridObject>(gridWidth, gridHeight, gridSpacing, Vector3.zero,
             (Grid<GridObject> g, int x, int z) => new GridObject(g, x, z), true);
     }
@@ -236,29 +241,12 @@ public class BuildingSystem : MonoBehaviour
         }
     }
 
-    public bool isPointerOverUI()
-    {
-        PointerEventData pointerEventData = new PointerEventData(EventSystem.current);
-        pointerEventData.position = Input.mousePosition;
-        List<RaycastResult> uiResults = new List<RaycastResult>();
-        for (int i = 0; i < uiResults.Count; i++)
-        {
-            if (uiResults[i].gameObject.TryGetComponent(out RectTransform rectTransform))
-            {
-                uiResults.RemoveAt(i);
-                i--;
-            }
-        }
-
-        return uiResults.Count > 0;
-    }
-
     private Vector3 GetMousePosition()
     {
-        if (isPointerOverUI())
+        if (MouseController.Current.isPointerOverUI())
             return lastPosition;
 
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit, 999f, mouseLayerMask))
         {
             lastPosition = hit.point;
