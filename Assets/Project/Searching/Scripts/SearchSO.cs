@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Assets/New Search")]
 public class SearchSO : ScriptableObject
 {
     public enum SearchType

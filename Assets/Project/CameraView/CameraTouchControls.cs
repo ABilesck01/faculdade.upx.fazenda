@@ -27,7 +27,7 @@ public class CameraTouchControls : MonoBehaviour
 
     private void Drag()
     {
-        if (Input.touchCount != 1) return;
+        if (Input.touchCount != 1 || MouseController.Current.isPointerOverUI()|| BuildingGhost.Current.IsDraging) return;
 
         Touch touch = Input.GetTouch(0);
         

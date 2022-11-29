@@ -16,6 +16,7 @@ public class PlayerSearch : MonoBehaviour
     {
         PlantingGrow.OnPlantSeed += PlantingGrowOnOnPlantSeed;
         BreedingPlaceController.OnBuyAnimal += BreedingPlaceControllerOnOnBuyAnimal;
+        SearchController.OnSearchCompleted += SearchControllerOnOnSearchCompleted;
     }
 
     private void OnDisable()
@@ -34,5 +35,19 @@ public class PlayerSearch : MonoBehaviour
     {
         CoValue += CurrentCoCostOnAnimals;
         if (CoValue < 0) CoValue = 0;
+    }
+    
+    private void SearchControllerOnOnSearchCompleted(object sender, SearchController.OnSearchCompletedEventArgs e)
+    {
+        if (e.completedSearch.Type == SearchSO.SearchType.seed)
+        {
+            CurrentPriceRaiseOnSeeds += e.completedSearch.PriceIncrease;
+            CurrentCoCostOnSeeds += e.completedSearch.CoCost;
+        }
+        else
+        {
+            CurrentPriceRaiseOnAnimals += e.completedSearch.PriceIncrease;
+            CurrentCoCostOnAnimals += e.completedSearch.CoCost;
+        }
     }
 }
