@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using UnityEngine;
 
 public class PlayerSearch : MonoBehaviour
 {
-    public int CoValue;
+    [SerializeField] private PolutionController polutionController;
+    
     public int CurrentPriceRaiseOnSeeds;
     public int CurrentPriceRaiseOnAnimals;
     
@@ -27,14 +29,14 @@ public class PlayerSearch : MonoBehaviour
 
     private void PlantingGrowOnOnPlantSeed(object sender, PlantingGrow.OnPlantSeedEventArgs e)
     {
-        CoValue += CurrentCoCostOnSeeds;
-        if (CoValue < 0) CoValue = 0;
+        polutionController.SetCoValue(CurrentCoCostOnSeeds);
     }
     
     private void BreedingPlaceControllerOnOnBuyAnimal(object sender, EventArgs e)
     {
-        CoValue += CurrentCoCostOnAnimals;
-        if (CoValue < 0) CoValue = 0;
+        // polutionController.CoValue += CurrentCoCostOnAnimals;
+        // if (polutionController.CoValue < 0) polutionController.CoValue = 0;
+        polutionController.SetCoValue(CurrentCoCostOnAnimals);
     }
     
     private void SearchControllerOnOnSearchCompleted(object sender, SearchController.OnSearchCompletedEventArgs e)
