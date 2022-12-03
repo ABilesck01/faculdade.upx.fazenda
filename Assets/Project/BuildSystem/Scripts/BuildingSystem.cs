@@ -77,7 +77,7 @@ public class BuildingSystem : MonoBehaviour
 
         if (willSpendMoney && !PlayerMoney.instance.SpendCoins(building.price))
         {
-            PlayerMoney.instance.SpendCoins(building.price);
+            //PlayerMoney.instance.SpendCoins(building.price);
             building = null;
             Debug.Log("Not nough money!");
             MessageBox.Instance.ShowMessage("Dinheiro insuficiente!");
