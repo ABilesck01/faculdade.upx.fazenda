@@ -15,5 +15,6 @@ MonoBehaviour:
   name: Porco
   Visual: {fileID: 1604214636713075637, guid: f0a955cefa470c84aacf2d581b7da342, type: 3}
   Price: 5
-  timeToFeed: 0
+  timeToFeed: 5
   feedCost: 50
+  item: {fileID: 0}

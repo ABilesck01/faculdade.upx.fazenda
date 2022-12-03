@@ -38,10 +38,21 @@ public class UI_inventory : MonoBehaviour
 
             itemFrame.GetComponent<UI_inventoryItem>().
                 Setup(item.item.Icon, item.item.Name,
-                item.item.price.ToString(), item.Amount.ToString());
+                item.item.price.ToString(), item.Amount.ToString(),
+                () =>
+                {
+                    SellItem(item);
+                });
 
             itemFrame.gameObject.SetActive(true);
         }
-
     }
+
+    private void SellItem(ItemInInventory item)
+    {
+        inventory.RemoveItem(item.item);
+        PlayerMoney.instance.SpendCoins(-(int)item.item.price);
+        RefreshItems();
+    }
+    
 }
