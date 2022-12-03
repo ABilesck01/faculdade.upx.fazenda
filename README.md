@@ -1,6 +1,6 @@
 # Voxel Farm
 
-Demonstrar conceitos de sustentabilidade de maneira lúdica, dinâmica e divertida. Com um aplicativo onde o usuário pode criar e administrar a sua própria fazenda virtual. O usuário terá que ter uma fazenda lucrativa e ao mesmo tempo sustentável, ganhando mais pontos à medida que sua fazenda seja mais sustentável.
+O jogo foi desenvolvido com o intuito de ensinar conceitos de agricultura sustentável, ao administrar a sua própria fazenda virtual, o usuário terá que lidar com questões ambientais, como, diversidade de plantio, poluição ambiental causada por criação de animais, poluição da água ao utilizar fertilizantes/adubos quimicos que aceleram o tempo de crescimento das plantas e como esses fatores são relacionados ao valor do produto final, sendo bonitifcado por produzir de forma sustentável ou penalizado ao usar recursos que fazem mal ao meio ambiente.
 
 ## Integrantes do grupo
 
@@ -18,7 +18,7 @@ Demonstrar conceitos de sustentabilidade de maneira lúdica, dinâmica e diverti
 
 ## Funcionalidades
 
-No app, o jogador pode construir celeiros, cilos e áreas de plantio, para poder cultivar suas plantações e cuidar de seus animais. Ele também conta com uma tela de pesquisas, no qual o jogador pode evoluir para aumentar seus ganhos e sua sustentabilidade.
+No jogo, o jogador pode construir celeiros, cilos e áreas de plantio, para poder cultivar suas plantações e cuidar de seus animais. Ele também conta com uma tela de pesquisas, no qual o jogador pode evoluir para aumentar seus ganhos e sua sustentabilidade.
 
 ---
 
